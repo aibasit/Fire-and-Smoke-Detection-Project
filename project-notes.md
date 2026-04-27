@@ -24,6 +24,11 @@ Last updated: 2026-04-25
   - `YOLOv8`
 - Dataset type:
   - Object detection
+- Dataset has been downloaded into the project.
+- Observed split sizes:
+  - Train: 18,045 images
+  - Validation: 2,730 images
+  - Test: 1,113 images
 - Do not download COCO JSON, Pascal VOC XML, TFRecord, YOLO Darknet, segmentation, or classification formats for this project.
 
 ## Recommended Dataset Location
@@ -82,6 +87,25 @@ notebooks/
   05_run_on_jetson_camera.ipynb
 ```
 
+Notebook files have been created in `notebooks/`.
+
+Also added:
+
+```text
+datasets/fire_smoke_roboflow_v4/data_project.yaml
+```
+
+This project-local YAML uses a stable absolute dataset path for training on this machine:
+
+```yaml
+path: D:/2. NUST/1. ML for EMbedded SIr ALi Hassan/Fire and Smoke Detection Project/datasets/fire_smoke_roboflow_v4
+train: train/images
+val: valid/images
+test: test/images
+```
+
+Reason: Ultralytics resolved `path: .` through its global dataset settings on this Windows machine, so the absolute path is safer for local training.
+
 ## Training Plan
 
 - Do not train on Jetson Nano if a laptop, desktop, or Google Colab is available.
@@ -105,8 +129,8 @@ notebooks/
 
 ## Next User Action
 
-1. Download the Roboflow dataset in `YOLOv8` format.
-2. Extract it into `datasets/fire_smoke_roboflow_v4/`.
-3. Confirm that `data.yaml` exists.
-4. Confirm class order is Fire first, Smoke second.
-5. Then continue with notebook creation and training setup.
+1. Open `notebooks/01_check_project_and_dataset.ipynb`.
+2. Run all cells to visually confirm dataset samples and labels.
+3. Open `notebooks/02_train_yolov8_fire_smoke.ipynb`.
+4. Start training with `yolov8n.pt`.
+5. After training, use `03_test_model.ipynb`, then `04_export_for_jetson.ipynb`.

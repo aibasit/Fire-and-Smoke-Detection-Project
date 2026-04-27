@@ -1,0 +1,22 @@
+# Datasets
+datasets/
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.env
+venv/
+.venv/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Model weights & runs
+runs/
+*.pth
+*.onnx
+
+# OS
+.DS_Store
+Thumbs.db
